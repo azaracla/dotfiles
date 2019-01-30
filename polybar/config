@@ -52,8 +52,7 @@ font-3 = Monaco:style=Regular
 ; font-3 = Inconsolata:style=Regular
 
 modules-left = i3
-modules-center = date
-modules-right = alsa memory cpu battery wired-network wireless-network
+modules-right = alsa memory cpu battery wired-network wireless-network vpn date
 
 
 [module/i3]
@@ -124,7 +123,7 @@ format-connected-underline = ${colors.white}
 format-disconnected = <label-disconnected>
 
 
-label-connected = %local_ip% %downspeed:9%
+label-connected = 
 label-connected-foreground = ${colors.foreground}
 
 ; Available tokens:
@@ -150,7 +149,7 @@ format-connected-underline = ${colors.white}
 format-disconnected = <label-disconnected>
 
 
-label-connected = %essid% %local_ip% %downspeed:9%
+label-connected = %essid%
 label-connected-foreground = ${colors.foreground}
 
 ; Available tokens:
@@ -181,7 +180,6 @@ label = %date% %time%
 interval = 30
 
 date = %Y-%m-%d
-date-alt = " %Y-%m-%d"
 
 time = %H:%M
 
@@ -248,3 +246,11 @@ label-muted = muted
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
+[module/vpn]
+type = custom/script
+exec = pgrep openvpn
+interval = 5
+label = ""
+label-foreground = ${colors.foreground}
+format-underline = ${colors.green}

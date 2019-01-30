@@ -33,7 +33,11 @@ assign [class="code-oss"] 3
 for_window [class="Spotify"] move to workspace 5
 for_window [class="Popcorn-Time"] move to workspace 5
 
-bindsym $mod+Shift+a exec --no-startup-id google-chrome-stable
+
+bindsym $mod+Escape exec i3lock --blur=10 --clock --indicator --insidecolor=232C31FF --ringcolor=9EA7A6FF --line-uses-inside --keyhlcolor=2A5491FF --bshlcolor=A03B1EFF --insidevercolor=232C31FF --insidewrongcolor=A03B1Eff --ringvercolor=9EA7A6FF --ringwrongcolor=3F4944FF --separatorcolor=2A5491FF --verifcolor=FFFFFFFF --wrongcolor=232C31FF --timecolor=9EA7A6FF --datecolor=9EA7A6FF 
+
+bindsym $mod+Shift+v exec ~/.config/scripts/vpn 
+bindsym $mod+Shift+a exec --no-startup-id "i3-msg workspace number 2 && google-chrome-stable"
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+z exec --no-startup-id exec urxvt -e ranger
 bindsym --whole-window --border $mod+Shift+button4 workspace prev
@@ -57,7 +61,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run 
-bindsym $mod+x exec rofi -dmenu -p "Google" | xargs -I{} xdg-open https://www.google.fr/search?q={}
+bindsym $mod+x exec --no-startup-id "rofi -dmenu -p 'Google' | xargs -I{} xdg-open https://www.google.fr/search?q={} && i3-msg '[class=\\"Google-chrome\\"] focus'"
 
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
